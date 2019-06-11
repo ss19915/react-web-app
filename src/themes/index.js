@@ -1,17 +1,20 @@
 import { THEME } from '../constants';
 import layoutSetting from './layoutSetting';
 import colors from './colors';
+import settings from './settings';
 
 const theme = {
     [THEME.DARK]: {
-        primaryColor: 'white',
-        backgroundColor: 'black',
+        primaryColor: colors.white,
+        primaryBackgroundColor: colors.black,
         ...layoutSetting,
+        ...settings,
     },
     [THEME.LIGHT]: {
-        primaryColor: 'black',
-        backgroundColor: 'white',
+        primaryColor: colors.black,
+        primaryBackgroundColor: colors.white,
         ...layoutSetting,
+        ...settings,
     }
 }
 

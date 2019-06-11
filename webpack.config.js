@@ -2,6 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
 
 module.exports =(env, argv) => {
     return ({
@@ -28,7 +29,8 @@ module.exports =(env, argv) => {
                 { from: './src/index.html', to: 'index.html'}
             ]),
             new webpack.HotModuleReplacementPlugin(),
-            new CleanWebpackPlugin()
+            new CleanWebpackPlugin(),
+            new DotEnv(),
         ],
         devServer: {
             hot: true,
