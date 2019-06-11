@@ -4,20 +4,37 @@ import { THEME } from '../../constants';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import themes from '../../themes';
+import { Global, css } from '@emotion/core';
 
-const DarkButton = styled.button({
-    color: themes[THEME.DARK].color,
+const ButtonStyle = ({ theme }) => css({
+    padding: theme.spacing_m,
+    margin: theme.spacing_l,
+    borderRadius: theme.spacing_m,
+    ':disabled': {
+        ':hover': {
+            cursor: 'not-allowed'
+        },
+    },
+    ':hover': {
+        cursor: 'pointer'
+    }
+});
+
+const DarkButton = styled.button(ButtonStyle, {
+    color: themes[THEME.DARK].primaryColor,
     backgroundColor: themes[THEME.DARK].backgroundColor,
 });
 
-const LightButton = styled.button({
-    color: themes[THEME.LIGHT].color,
+const LightButton = styled.button(ButtonStyle, {
+    color: themes[THEME.LIGHT].primaryColor,
     backgroundColor: themes[THEME.LIGHT].backgroundColor,
 });
 
 const Div = styled.div(({ theme }) => ({
-    color: theme.color,
+    color: theme.primaryColor,
     backgroundColor: theme.backgroundColor,
+    height: theme.height_max,
+    width: theme.width_max,
 }));
 
 const Home = (props) => {
@@ -28,6 +45,13 @@ const Home = (props) => {
 
     return (
         <Div>
+            <Global
+                styles={css({
+                    body: {
+                        margin: 0,
+                    }
+                })}
+            />
             React App
             <DarkButton
                 disabled={activeTheme === THEME.DARK}
