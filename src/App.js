@@ -1,29 +1,24 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import styled from '@emotion/styled';
+import { ThemeProvider } from 'emotion-theming';
+import themes from './themes';
+import { connect } from 'react-redux';
+import Home from './components';
 
-const Button = styled.button((prop) => ({
-    color: prop.theme.color,
-    border: '5px solid yellow'
-}), { color: 'blue'});
+class App extends React.Component {
+    render() {
+        const { activeTheme } = this.props;
 
-const Headline = styled.h1`
-  color: ${props => props.theme.color};
-  font-family: sans-serif;
-`
-
-
-class App extends React.Component{
-    render(){
-        return(
-            <div>
-                React App
-                <Headline>I'm imotionally red!</Headline>
-                <Button>Emotion button</Button>
-                <p css={theme => ({ color: theme.color })}>I'm also red!</p>
-            </div>
+        return (
+            <ThemeProvider theme={themes[activeTheme]}>
+                <Home/>
+            </ThemeProvider>
         );
     }
 }
 
-export default hot(App);
+const mapStateToProps = state => ({
+    activeTheme: state.theme,
+});
+
+export default hot(connect(mapStateToProps)(App));

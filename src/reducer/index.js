@@ -1,14 +1,15 @@
-import { actionConstants } from '../constants';
+import { actionConstants, THEME } from '../constants';
 
-const InitialState = {};
+const InitialState = {
+    theme: THEME.LIGHT,
+};
 
-const { TEST_ACTION_CONSTANT } = actionConstants;
+const { SET_THEME } = actionConstants;
 
-const reducer = ( state = InitialState, action) => {
-    switch(action.type){
-        case TEST_ACTION_CONSTANT:
-            console.log(`Test action ${TEST_ACTION_CONSTANT} fired`);
-            return state;
+const reducer = (state = InitialState, action) => {
+    switch (action.type) {
+        case SET_THEME:
+            return { ...state, theme: action.theme };
 
         default:
             return state;

@@ -1,7 +1,8 @@
 import { actionConstants } from '../constants';
 
-const { TEST_ACTION_CONSTANT } = actionConstants;
+const { SET_THEME } = actionConstants;
 
-export const testAction = {
-    type: TEST_ACTION_CONSTANT
-};
+export const setTheme = (theme) => ({
+    type: SET_THEME,
+    theme
+});

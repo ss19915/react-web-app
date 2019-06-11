@@ -1,1 +1,1 @@
-export const TEST_ACTION_CONSTANT = 'TEST_ACTION_CONSTANT';
+export const SET_THEME = 'SET_THEME';
