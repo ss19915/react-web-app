@@ -1,4 +1,10 @@
 {
-    "presets": ["@babel/preset-react", "@babel/flow"],
-    "plugins": ["emotion"]
+    "presets": [
+        "@babel/preset-react",
+        "@emotion/babel-preset-css-prop",
+        "@babel/flow",
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
+    ]
 }
