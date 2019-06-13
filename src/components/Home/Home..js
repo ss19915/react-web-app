@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { Global, css } from '@emotion/core';
 import { LightButton, DarkButton } from '../ThemeButtons';
 import { Div, Window } from '../Commom';
+import { BrowserRouter, Route, Link, } from 'react-router-dom';
+import About from '../About';
 
 const Home = (props) => {
     const {
@@ -23,7 +25,6 @@ const Home = (props) => {
                 >
                     Dark Theme
                 </DarkButton>
-
                 <LightButton
                     disabled={activeTheme === THEME.LIGHT}
                     onClick={() => setTheme(THEME.LIGHT)}
@@ -32,6 +33,10 @@ const Home = (props) => {
                 </LightButton>
                 <Div>{process.env.ENV_FILE}</Div>
                 <Div css={css({ color: 'red' })}>I'm Imotionally Red</Div>
+                <BrowserRouter>
+                    <Link to='/About'>About React Web App</Link>
+                    <Route path='/About' component={About} />
+                </BrowserRouter>
             </Div>
         </Window>
     );

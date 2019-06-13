@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DotEnv = require('dotenv-webpack');
 
-module.exports =(env, argv) => {
+module.exports = (env, argv) => {
     return ({
         entry: './src/index.js',
         output: {
@@ -13,7 +13,7 @@ module.exports =(env, argv) => {
         },
         module: {
             rules: [
-                { 
+                {
                     test: /\.(js|jsx)$/,
                     use: 'babel-loader',
                     exclude: '/node_modules/',
@@ -26,7 +26,7 @@ module.exports =(env, argv) => {
         },
         plugins: [
             new CopyPlugin([
-                { from: './src/index.html', to: 'index.html'}
+                { from: './src/index.html', to: 'index.html' }
             ]),
             new webpack.HotModuleReplacementPlugin(),
             new CleanWebpackPlugin(),
@@ -34,7 +34,10 @@ module.exports =(env, argv) => {
         ],
         devServer: {
             hot: true,
-            port: 3000
+            port: 3000,
+            historyApiFallback: {
+                index: '/'
+            }
         }
     });
 }
