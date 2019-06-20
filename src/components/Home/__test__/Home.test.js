@@ -1,8 +1,8 @@
 import Home from '../Home';
 
 describe('Component: Home', () => {
-    it('Mount test', () => {
-        const wrapper = mountWithThemeAndStore(<Home/>);
+    it('Shallow Snapshot test', () => {
+        const wrapper = shallowWithTheme(<Home/>);
 
         expect(wrapper).toMatchSnapshot();
     });
