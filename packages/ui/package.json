@@ -1,13 +1,15 @@
 {
-  "name": "react-web-app",
+  "name": "@react-web-app/ui",
   "version": "1.0.0",
   "description": "React web app with ES6, emotion, flow  out of the box.",
-  "main": "index.js",
+  "main": "cjs",
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production",
-    "flow": "flow"
+    "flow": "flow",
+    "watch": "rm -rfv ./cjs && babel --watch --verbose --relative ./src/ -d ../cjs --ignore './src/**/*.test.js' --ignore './src/*.test.js'",
+    "watchWin": "babel --watch --verbose  ./src/ -d ../cjs --ignore './src/**/*.test.js' --ignore './src/*.test.js'"
   },
   "author": "Suraj Sharma",
   "license": "ISC",

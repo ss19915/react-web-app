@@ -7,13 +7,21 @@ const mode = {
     PRODUCTION: 'production',
     DEVELOPMENT: 'development',
 }
+
+const envFilePath = '../../.env';
+
 module.exports = (env, argv) => {
 
     const module = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        rootMode: 'upward', 
+                    }
+                },
                 exclude: '/node_modules/',
             },
             {
@@ -29,7 +37,7 @@ module.exports = (env, argv) => {
         ]),
         new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(),
-        new DotEnv(),
+        new DotEnv({path: envFilePath}),
     ];
 
     const devServer = {
