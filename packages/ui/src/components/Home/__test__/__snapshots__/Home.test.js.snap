@@ -3,6 +3,5 @@
 exports[`Component: Home Shallow Snapshot test 1`] = `
 <WithStyles(ForwardRef(Paper))>
   Home
-  <Loader />
 </WithStyles(ForwardRef(Paper))>
 `;
