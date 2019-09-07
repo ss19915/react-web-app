@@ -8,14 +8,14 @@
     },
     "license": "MIT",
     "private": true,
-    "workspaces": [
-        "packages/*"
-    ],
+    "workspaces": [ "packages/*" ],
     "scripts": {
         "watch": "rm -rfv ./packages/**/cjs && babel --watch --verbose --relative ./packages/**/src/ -d ../cjs --ignore './packages/**/src/**/*.test.js' --ignore './packages/**/src/*.test.js'",
         "watchWin": "babel --watch --verbose --relative ./packages/**/src/ -d ../cjs --ignore './packages/**/src/**/*.test.js' --ignore './packages/**/src/*.test.js'"
     },
-    "dependencies": {
-        "@babel/cli": "^7.5.5"
+    "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5"
     }
 }
