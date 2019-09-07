@@ -1,9 +1,9 @@
 module.exports = {
     'verbose': true,
     'transform': {
-        '^.+\\.jsx?$': 'babel-jest'
+        '^.+\\.jsx?$': './test/babel-jest'
       },
-      setupFiles: [ './testEnv.js' ],
+      setupFiles: [ './test/setup.js' ],
       testPathIgnorePatterns: [ 'node_modules' ],
-      snapshotSerializers: ["enzyme-to-json/serializer", 'jest-emotion'],
+      snapshotSerializers: ["enzyme-to-json/serializer"],
 }
